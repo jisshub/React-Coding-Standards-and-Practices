@@ -39,26 +39,106 @@ Example: LoginScreen.test.js
 
 ## Some Best Practices for Clean Code
 
-1. Use the DRY principle (Don't repeat yourself).
+### 1. Use the DRY principle (Don't repeat yourself).
 
-2. Create multiple files instead of writing a big file. (Componentization of code: fix to small functionality for each file).
+### 2. Create multiple files instead of writing a big file. (Componentization of code: fix to small functionality for each file).
 
-3. Avoid Inline CSS when possible.
+### 3. Avoid Inline CSS when possible.
 
-4. Use a linter to make your code easier to review. Follow strict linting rules. This in turn helps you write clean, consistent code.
+### 4. Use a linter to make your code easier to review. Follow strict linting rules. This in turn helps you write clean, consistent code.
 
-5. Split your code into multiple smaller functions. Each with a single responsibility.
+### 5. Split your code into multiple smaller functions. Each with a single responsibility.
 
-6. Separate all your service calls into a separate file. If it’s a big project try to split the services into multiple files. (name convention module_name.service.js).
+### 6. Separate all your service calls into a separate file. If it’s a big project try to split the services into multiple files. (name convention module_name.service.js).
 
-7. Always write test cases for your code. Keep tests files in sync with the files they are testing.
+### 7. Always write test cases for your code. Keep tests files in sync with the files they are testing.
 
-8. Destructuring your props is a good way to help make your coder cleaner and more maintainable.
+### 8. Destructuring your props is a good way to help make your coder cleaner and more maintainable.
+
+### 9. Use Ternary Operators
+
+```js
+const { role } = user;
+
+return role === ADMIN ? <AdminUser /> : <NormalUser />
+```
+
+### 10. Use React Fragments
+
+Always use Fragment over Div. It keeps the code clean and is also beneficial for performance because one less node is created in the virtual DOM.
+
+```js
+return (
+  <>
+     <Component1 />
+     <Component2 />
+     <Component3 />
+  </>  
+)
+```
+
+### 11. Use Memo and Pure components
+
+*React.PureComponent* and *UseMemo* can significantly improve the performance of your application. They help us to avoid unnecessary rendering.
 
 
 
+### 12. Use Object Destructuring
+
+Use object destructuring to your advantage. Let’s say you need to show a user’s details.
+
+```js
+const { name, age, profession } = user;
+
+return (
+  <>
+    <div> {name} </div>
+    <div> {age} </div>
+    <div> {profession} </div>
+  </>  
+)
+```
+
+### 13. Use Template Literals
+
+Use template literals to build large strings. Avoid using string concatenation. It’s nice and clean.
 
 
+```js
+
+const userDetails = `${user.name}'s profession is ${user.proffession}`
+
+return (
+  <div> {userDetails} </div>  
+)
+```
+
+### 14. Quotes
+
+Use double quotes for JSX attributes and single quotes for all other JS.
 
 
+### 15. Prop Naming
 
+Always use camelCase for prop names or PascalCase if the prop value is a React component.
+
+```js
+<MyComponent
+  userName="hello"
+  phoneNumber={12345678}
+  Component={SomeComponent}
+/>
+```
+
+
+### 16. JSX in Parentheses
+
+If your component spans more than one line, always wrap it in parentheses.
+
+```jsx
+return (
+    <MyComponent variant="long">
+      <MyChild />
+    </MyComponent>
+);
+```
